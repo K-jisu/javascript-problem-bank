@@ -13,10 +13,8 @@ let rejectPromise;
 resolvePromise = new Promise((resolve) => {
   resolve("Hello");
 });
-rejectPromise = new Promise((reject) => {
+rejectPromise = new Promise((resolve, reject) => {
   reject("Error!");
-}).catch((err)=>{
-  err
 })
 
 // export를 수정하지 마세요.
