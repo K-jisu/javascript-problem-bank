@@ -20,16 +20,21 @@ function fixCartReferenceIssue() {
 
   // TODO: userBCart가 userACart와 독립된 복사본을 가지도록 해야 함
   let userBCart;
+  userBCart = JSON.parse(JSON.stringify(userACart));
 
   const coupon = 5000;
 
   applyCoupon(userBCart, coupon);
   function applyCoupon(cart, discount) {
-    // TODO
+    // TOD
+    const answer = cart.items.map((item) => {
+      return (item.price -= discount);
+    });
+    return answer;
   }
 
   return { userACart, userBCart };
 }
-
+fixCartReferenceIssue();
 // export를 수정하지 마세요.
 export { fixCartReferenceIssue };
